@@ -30,7 +30,7 @@ export const siteConfig = {
 export const navItems = [
   { label: l("Trabajo", "Work"), href: "#work" },
   { label: l("Sobre mí", "About"), href: "#about" },
-  { label: l("Trayectoria", "Timeline"), href: "#timeline" },
+  { label: l("Trayectoria", "Track Record"), href: "#timeline" },
   { label: l("Habilidades", "Skills"), href: "#skills" },
   { label: l("Contacto", "Contact"), href: "#contact" },
 ];
@@ -322,7 +322,7 @@ export const skillCategories: SkillCategory[] = [
 export const ui = {
   available: l("Disponible para trabajar", "Available for work"),
   viewWork: l("Ver trabajo", "View Work"),
-  getInTouch: l("Contactar", "Get in Touch"),
+  getInTouch: l("Contacto", "Get in Touch"),
   scroll: l("Desplazar", "Scroll"),
   live: l("En vivo", "Live"),
   work: {
@@ -339,10 +339,10 @@ export const ui = {
   },
   timeline: {
     badge: l("03 / Trayectoria", "03 / Timeline"),
-    heading: l("Historial", "Track Record"),
+    heading: l("Experiencia", "Track Record"),
     description: l(
-      "Trabajo, educación, cursos y proyectos — ordenados por relevancia.",
-      "Work, education, courses, and projects — ordered by relevance."
+      "Trabajo, educación, cursos y proyectos.",
+      "Work, education, courses, and projects."
     ),
     types: {
       work: l("Trabajo", "Work"),
@@ -357,11 +357,16 @@ export const ui = {
   },
   contact: {
     badge: l("05 / Contacto", "05 / Contact"),
-    heading: l("Contactar", "Get in Touch"),
+    heading: l("Conecta conmigo", "Get in Touch"),
     description: l(
       "Disponible para roles, consultas técnicas o colaboraciones estratégicas.",
       "Available for roles, technical inquiries, or strategic collaborations."
     ),
+  },
+  cv: {
+    download: l("Descargar CV", "Download CV"),
+    label: l("CV_ACB_Español.pdf", "CV_ACB_English.pdf"),
+    path: l("/CV_ACB_Español.pdf", "/CV_ACB_English.pdf"),
   },
   footer: {
     builtWith: l("Construido con Next.js + Tailwind CSS", "Built with Next.js + Tailwind CSS"),
