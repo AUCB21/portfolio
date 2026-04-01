@@ -103,6 +103,7 @@ export const projects: Project[] = [
       "Tool to explore and visualize GitHub profiles and repository data."
     ),
     tags: ["JavaScript"],
+    href: "https://aucbgitpeek.vercel.app",
     github: "https://github.com/aucb21/GitPeek",
   },
 ];
@@ -267,6 +268,7 @@ export const timeline: TimelineEntry[] = [
       "Tool to explore and visualize GitHub profiles and repository data."
     ),
     tags: ["JavaScript"],
+    href: "https://aucbgitpeek.vercel.app",
     github: "https://github.com/aucb21/GitPeek",
   },
 
