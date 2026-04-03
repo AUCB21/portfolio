@@ -1,9 +1,10 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { projects, ui } from '@/lib/data';
+import { useEffect, useRef, useState } from 'react';
+import { projects as fallbackProjects, ui } from '@/lib/data';
 import type { Project } from '@/lib/data';
+import { repoOverrides } from '@/lib/github-overrides';
 import { useLocale } from './LocaleProvider';
 import { SpotlightCard } from './SpotlightCard';
 
@@ -59,6 +60,34 @@ export function Work() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
   const { t } = useLocale();
+  const [projects, setProjects] = useState<Project[]>(fallbackProjects);
+
+  useEffect(() => {
+    fetch('https://api.github.com/users/aucb21/repos?per_page=100&sort=updated', {
+      headers: { Accept: 'application/vnd.github+json' },
+    })
+      .then((r) => r.json())
+      .then((repos: { name: string; description: string | null; html_url: string; homepage: string | null; language: string | null; fork: boolean }[]) => {
+        const matched = repos.filter((r) => !r.fork && repoOverrides[r.name]);
+        if (matched.length === 0) return; // keep fallback
+
+        const isPinned = (name: string) => repoOverrides[name]?.pinned ?? false;
+        const sorted = [...matched].sort((a, b) => (isPinned(b.name) ? 1 : 0) - (isPinned(a.name) ? 1 : 0));
+
+        setProjects(sorted.map((repo) => {
+          const ov = repoOverrides[repo.name];
+          const fb = repo.description ?? repo.name;
+          return {
+            title: ov?.title ?? repo.name,
+            description: ov?.description ?? { es: fb, en: fb },
+            tags: ov?.tags ?? (repo.language ? [repo.language] : []),
+            href: repo.homepage || undefined,
+            github: repo.html_url,
+          };
+        }));
+      })
+      .catch(() => {}); // keep fallback on error
+  }, []);
 
   return (
     <section id="work" ref={ref} className="py-24 px-6 max-w-5xl mx-auto">

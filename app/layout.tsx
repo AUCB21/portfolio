@@ -19,6 +19,20 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: `${siteConfig.name} — ${siteConfig.title.en}`,
   description: siteConfig.tagline.en,
+  openGraph: {
+    title: `${siteConfig.name} — ${siteConfig.title.en}`,
+    description: siteConfig.tagline.en,
+    url: 'https://acbportfolio.vercel.app',
+    siteName: siteConfig.name,
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: siteConfig.name }],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${siteConfig.name} — ${siteConfig.title.en}`,
+    description: siteConfig.tagline.en,
+    images: ['/og-image.png'],
+  },
   icons: {
     icon: '/portfolio_favicon.png',
     apple: '/portfolio_favicon.png',

@@ -28,9 +28,9 @@ export const siteConfig = {
 
 // ─── Navigation ───────────────────────────────────────────────────────────────
 export const navItems = [
-  { label: l("Trabajo", "Work"), href: "#work" },
-  { label: l("Sobre mí", "About"), href: "#about" },
   { label: l("Trayectoria", "Track Record"), href: "#timeline" },
+  { label: l("Sobre mí", "About"), href: "#about" },
+  { label: l("Trabajo", "Work"), href: "#work" },
   { label: l("Habilidades", "Skills"), href: "#skills" },
   { label: l("Contacto", "Contact"), href: "#contact" },
 ];
@@ -53,7 +53,6 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-  // 1 — Most complete: live, full-stack, CV-highlighted
   {
     title: "Gastos",
     description: l(
@@ -64,7 +63,6 @@ export const projects: Project[] = [
     href: "https://gastos-jade.vercel.app/",
     github: "https://github.com/aucb21/Gastos",
   },
-  // 2 — CV-highlighted, real-time architecture, modern stack
   {
     title: "EPS Chat App",
     description: l(
@@ -75,7 +73,6 @@ export const projects: Project[] = [
     href: "https://epschatapp.vercel.app",
     github: "https://github.com/aucb21/chatapp",
   },
-  // 3 — AI/LLM angle, stands out conceptually
   {
     title: "Tooner",
     description: l(
@@ -85,7 +82,6 @@ export const projects: Project[] = [
     tags: ["JavaScript", "AI", "LLM"],
     github: "https://github.com/aucb21/Tooner",
   },
-  // 4 — Shows backend / Python depth
   {
     title: "crWRL",
     description: l(
@@ -95,7 +91,6 @@ export const projects: Project[] = [
     tags: ["Python", "Web Scraping"],
     github: "https://github.com/aucb21/crWRL",
   },
-  // 5 — Utility tool
   {
     title: "GitPeek",
     description: l(
@@ -103,14 +98,23 @@ export const projects: Project[] = [
       "Tool to explore and visualize GitHub profiles and repository data."
     ),
     tags: ["JavaScript"],
-    href: "https://aucbgitpeek.vercel.app",
+    href: "https://git-peek-umber.vercel.app",
     github: "https://github.com/aucb21/GitPeek",
+  },
+  {
+    title: "gitdorker",
+    description: l(
+      "Herramienta OSINT para búsquedas avanzadas en GitHub usando dorks.",
+      "OSINT tool for advanced GitHub searches using dorks."
+    ),
+    tags: ["Python", "OSINT"],
+    github: "https://github.com/aucb21/gitdorker",
   },
 ];
 
 // ─── Timeline ─────────────────────────────────────────────────────────────────
 export type TimelineEntry = {
-  type: 'work' | 'education' | 'course' | 'project';
+  type: 'work' | 'education' | 'course';
   title: string;
   subtitle: string;
   period: L;
@@ -168,37 +172,7 @@ export const timeline: TimelineEntry[] = [
     tags: ["Algoritmos", "Redes", "SO", "Matemática"],
   },
 
-  // 4 — Most complete project: live, full-stack, CV-highlighted
-  {
-    type: 'project',
-    title: "Gastos",
-    subtitle: l("Finanzas personales & grupales", "Personal & Group Finance").es,
-    period: l("Nov 2025", "Nov 2025"),
-    description: l(
-      "Herramienta financiera con filtrado avanzado y visualización SQL para gestión de gastos.",
-      "Financial tool featuring advanced filtering and SQL-based visualization for expense management."
-    ),
-    tags: ["Next.js", "Django", "DRF", "PostgreSQL"],
-    href: "https://gastos-jade.vercel.app/",
-    github: "https://github.com/aucb21/Gastos",
-  },
-
-  // 5 — CV-highlighted, real-time architecture
-  {
-    type: 'project',
-    title: "EPS Chat App",
-    subtitle: "Next.js + Supabase",
-    period: l("Mar 2026", "Mar 2026"),
-    description: l(
-      "Plataforma de mensajería en tiempo real con arquitectura escalable y baja latencia.",
-      "Real-time messaging platform with scalable architecture and low-latency message delivery."
-    ),
-    tags: ["Next.js", "TypeScript", "Supabase"],
-    href: "https://epschatapp.vercel.app",
-    github: "https://github.com/aucb21/chatapp",
-  },
-
-  // 6 — Most recent course, extends the stack
+  // 4 — Most recent course, extends the stack
   {
     type: 'course',
     title: "Full Stack Developer (Node.js & MySQL)",
@@ -207,7 +181,7 @@ export const timeline: TimelineEntry[] = [
     tags: ["Node.js", "MySQL", "JavaScript"],
   },
 
-  // 7 — Ongoing, data engineering expands profile
+  // 5 — Ongoing, data engineering expands profile
   {
     type: 'course',
     title: "Data Engineering",
@@ -216,7 +190,7 @@ export const timeline: TimelineEntry[] = [
     tags: ["Python", "Jupyter", "ETL"],
   },
 
-  // 8 — Foundational course
+  // 6 — Foundational course
   {
     type: 'course',
     title: "Full Stack Developer (Django & SQLite)",
@@ -227,63 +201,6 @@ export const timeline: TimelineEntry[] = [
       "First formal web-dev training. Covered HTML, CSS, JavaScript, Django, and version control with Git."
     ),
     tags: ["Django", "SQLite", "JavaScript", "HTML", "CSS", "Git"],
-  },
-
-  // 9 — AI/LLM angle stands out
-  {
-    type: 'project',
-    title: "Tooner",
-    subtitle: l("Optimizador de prompts LLM", "LLM Prompt Optimizer").es,
-    period: l("Dic 2025", "Dec 2025"),
-    description: l(
-      "Convierte entradas en clases TOON para reducir costos de API de LLMs.",
-      "Converts inputs into TOON classes to reduce API/LLM prompt costs."
-    ),
-    tags: ["JavaScript", "AI", "LLM"],
-    github: "https://github.com/aucb21/Tooner",
-  },
-
-  // 10 — Python depth
-  {
-    type: 'project',
-    title: "crWRL",
-    subtitle: l("Crawler Python", "Python Crawler").es,
-    period: l("Feb 2026", "Feb 2026"),
-    description: l(
-      "Bot crawler con exportación automática a JSON, TXT y DB.",
-      "Crawler bot with automatic export to JSON, TXT and database."
-    ),
-    tags: ["Python", "Web Scraping"],
-    github: "https://github.com/aucb21/crWRL",
-  },
-
-  // 11 — Utility tool
-  {
-    type: 'project',
-    title: "GitPeek",
-    subtitle: l("Explorador de perfiles GitHub", "GitHub Profile Explorer").es,
-    period: l("Mar 2026", "Mar 2026"),
-    description: l(
-      "Herramienta para explorar y visualizar perfiles de GitHub y sus repositorios.",
-      "Tool to explore and visualize GitHub profiles and repository data."
-    ),
-    tags: ["JavaScript"],
-    href: "https://aucbgitpeek.vercel.app",
-    github: "https://github.com/aucb21/GitPeek",
-  },
-
-  // 12 — Early learning project
-  {
-    type: 'project',
-    title: "Django + React Practice",
-    subtitle: l("Proyecto personal", "Personal Project").es,
-    period: l("May 2024", "May 2024"),
-    description: l(
-      "Aplicación básica Django-React para practicar APIs REST y fluencia con ambos frameworks.",
-      "Basic Django-React application to practice REST APIs and fluency with both frameworks."
-    ),
-    tags: ["Django", "React.js", "REST API"],
-    github: "https://github.com/aucb21/MH_DJANGO_REACT",
   },
 ];
 
@@ -328,7 +245,7 @@ export const ui = {
   scroll: l("Desplazar", "Scroll"),
   live: l("En vivo", "Live"),
   work: {
-    badge: l("01 / Trabajo", "01 / Work"),
+    badge: l("03 / Trabajo", "03 / Work"),
     heading: l("Soluciones Desarrolladas", "Engineered Solutions"),
     description: l(
       "Algunas cosas que construí — desde apps full-stack hasta herramientas personales.",
@@ -340,17 +257,16 @@ export const ui = {
     heading: l("¿Quién soy?", "Who am I?"),
   },
   timeline: {
-    badge: l("03 / Trayectoria", "03 / Timeline"),
+    badge: l("01 / Trayectoria", "01 / Timeline"),
     heading: l("Experiencia", "Track Record"),
     description: l(
-      "Trabajo, educación, cursos y proyectos.",
-      "Work, education, courses, and projects."
+      "Experiencia laboral, educación y cursos.",
+      "Work experience, education, and courses."
     ),
     types: {
       work: l("Trabajo", "Work"),
       education: l("Educación", "Education"),
       course: l("Curso", "Course"),
-      project: l("Proyecto", "Project"),
     },
   },
   skills: {

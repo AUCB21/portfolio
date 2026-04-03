@@ -10,14 +10,12 @@ const dotStyles: Record<TimelineEntry['type'], string> = {
   work: 'bg-sky-500 ring-sky-200 dark:ring-sky-900',
   education: 'bg-violet-500 ring-violet-200 dark:ring-violet-900',
   course: 'bg-emerald-500 ring-emerald-200 dark:ring-emerald-900',
-  project: 'bg-indigo-500 ring-indigo-200 dark:ring-indigo-900',
 };
 
 const badgeStyles: Record<TimelineEntry['type'], string> = {
   work: 'bg-sky-50 text-sky-700 dark:bg-sky-950 dark:text-sky-300 border-sky-200 dark:border-sky-800',
   education: 'bg-violet-50 text-violet-700 dark:bg-violet-950 dark:text-violet-300 border-violet-200 dark:border-violet-800',
   course: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800',
-  project: 'bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800',
 };
 
 function TimelineItem({ entry, index }: { entry: TimelineEntry; index: number }) {
